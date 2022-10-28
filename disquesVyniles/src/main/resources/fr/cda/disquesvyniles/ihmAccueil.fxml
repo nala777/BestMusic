@@ -11,18 +11,19 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cda.disquesvyniles.VinyleController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="805.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cda.disquesvyniles.VinyleController">
    <children>
       <MenuBar prefWidth="783.0">
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Quitter" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Paramètres">
@@ -37,7 +38,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane prefHeight="581.0" prefWidth="776.0">
+      <Pane prefHeight="340.0" prefWidth="776.0">
          <children>
             <Label layoutX="27.0" layoutY="25.0" text="Recherche Vinyle" textFill="#797979" underline="true">
                <font>
@@ -86,5 +87,6 @@
             <ProgressBar fx:id="chargement" layoutX="4.0" layoutY="312.0" prefHeight="27.0" prefWidth="768.0" progress="0.0" />
          </children>
       </Pane>
+      <TextArea prefHeight="441.0" prefWidth="776.0" />
    </children>
 </VBox>
