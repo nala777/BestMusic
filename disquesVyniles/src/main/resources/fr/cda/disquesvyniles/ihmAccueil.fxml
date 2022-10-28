@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cda.disquesvyniles.VinyleController">
+   <children>
+      <MenuBar prefWidth="783.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Fichier">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Paramètres">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Aide">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane prefHeight="581.0" prefWidth="776.0">
+         <children>
+            <Label layoutX="27.0" layoutY="25.0" text="Recherche Vinyle" textFill="#797979" underline="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="81.0" text="Titre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="titre" layoutX="148.0" layoutY="79.0" prefHeight="25.0" prefWidth="203.0" promptText="Sélectionnez un titre" />
+            <Label layoutX="67.0" layoutY="125.0" text="Genre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="genre" layoutX="148.0" layoutY="123.0" prefHeight="25.0" prefWidth="203.0" promptText="Sélectionnez un genre">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="Rock" />
+                         <String fx:value="Blues" />
+                         <String fx:value="Jazz" />
+                         <String fx:value="Reggae" />
+                         <String fx:value="Funk" />
+                         <String fx:value="Electro" />
+                         <String fx:value="DubStep" />
+                         <String fx:value="Soul" />
+                     </FXCollections>
+                 </items>
+            </ComboBox>
+            <Label layoutX="72.0" layoutY="170.0" text="Date" />
+            <DatePicker fx:id="date" layoutX="149.0" layoutY="166.0" prefHeight="25.0" prefWidth="181.0" promptText="Selectionnez une date" />
+            <Label layoutX="76.0" layoutY="214.0" text="Prix" />
+            <TextField fx:id="prixMin" layoutX="148.0" layoutY="210.0" prefHeight="25.0" prefWidth="59.0" promptText="Prix Min" />
+            <Label layoutX="218.0" layoutY="214.0" prefHeight="17.0" prefWidth="28.0" text="€ à" />
+            <TextField fx:id="prixMax" layoutX="246.0" layoutY="210.0" prefHeight="26.0" prefWidth="67.0" promptText="Prix Max" />
+            <Button fx:id="recherche" layoutX="148.0" layoutY="266.0" mnemonicParsing="false" text="Rechercher" />
+            <Button fx:id="effacer" layoutX="253.0" layoutY="266.0" mnemonicParsing="false" onAction="#onEffacerClick" text="Effacer" />
+            <CheckBox fx:id="discogs" layoutX="472.0" layoutY="104.0" mnemonicParsing="false" text="Discogs.com" />
+            <CheckBox fx:id="fnac" layoutX="472.0" layoutY="137.0" mnemonicParsing="false" text="Fnac.com" />
+            <CheckBox fx:id="vinylCorner" layoutX="472.0" layoutY="170.0" mnemonicParsing="false" text="Vinylcorner.fr" />
+            <CheckBox fx:id="leboncoin" layoutX="472.0" layoutY="202.0" mnemonicParsing="false" text="Leboncoin.fr" />
+            <CheckBox fx:id="cultureFactory" layoutX="472.0" layoutY="266.0" mnemonicParsing="false" text="Culturefactory.fr" />
+            <CheckBox fx:id="mesVinyles" layoutX="472.0" layoutY="235.0" mnemonicParsing="false" text="MesVinyles.fr" />
+            <ProgressBar fx:id="chargement" layoutX="4.0" layoutY="312.0" prefHeight="27.0" prefWidth="768.0" progress="0.0" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
