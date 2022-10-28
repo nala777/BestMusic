@@ -23,17 +23,20 @@
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
-              <MenuItem mnemonicParsing="false" text="Quitter" />
+                <MenuItem fx:id="save" mnemonicParsing="false" text="Enregistrer dans un fichier" />
+                <MenuItem fx:id="mail" mnemonicParsing="false" onAction="#PopupMail" text="Envoi Couriel" />
+                <MenuItem fx:id="saveBDD" mnemonicParsing="false" onAction="#PopupSave" text="Enregistrer dans la base de données" />
+                <MenuItem mnemonicParsing="false" text="Quitter" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Paramètres">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                <MenuItem fx:id="connection" mnemonicParsing="false" onAction="#BDDScene" text="Base de données" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Aide">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Mode d'emploi" />
             </items>
           </Menu>
         </menus>

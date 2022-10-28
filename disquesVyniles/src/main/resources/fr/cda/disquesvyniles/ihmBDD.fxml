@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cda.disquesvyniles.VinyleController">
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -23,7 +22,7 @@
             <Label layoutX="175.0" layoutY="192.0" text="Login Utilisateur :" />
             <Label layoutX="175.0" layoutY="225.0" text="Password Utilisateur :" />
             <Button layoutX="262.0" layoutY="280.0" mnemonicParsing="false" text="Valider" />
-            <Button layoutX="340.0" layoutY="280.0" mnemonicParsing="false" text="Fermer" />
+            <Button fx:id="closeBDD" onAction="#onFermerBDDClick" layoutX="340.0" layoutY="280.0" mnemonicParsing="false" text="Fermer" />
             <TextField layoutX="292.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" promptText="Nom d'host ou adresse IP" />
             <TextField layoutX="292.0" layoutY="119.0" prefHeight="25.0" prefWidth="160.0" promptText="Nom de la Base de données" />
             <TextField layoutX="340.0" layoutY="152.0" promptText="ex : 3306 " />
