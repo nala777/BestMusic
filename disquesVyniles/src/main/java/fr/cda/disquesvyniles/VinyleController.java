@@ -8,22 +8,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class VinyleController {
-
-    @FXML
-    private MenuItem connection;
-    @FXML
-    private MenuItem save;
-    @FXML
-    private MenuItem register;
     @FXML
     private TextField titre;
     @FXML
@@ -34,7 +31,6 @@ public class VinyleController {
     private TextField prixMax;
     @FXML
     private TextField prixMin;
-
     @FXML
     private CheckBox discogs;
     @FXML
@@ -48,13 +44,9 @@ public class VinyleController {
     @FXML
     private CheckBox cultureFactory;
     @FXML
-    private Button valider;
-    @FXML
-    private Button effacer;
+    private TextArea search;
     @FXML
     private Button closeBDD;
-
-
 
     @FXML
     protected void onCloseClick() {
@@ -74,7 +66,7 @@ public class VinyleController {
         mesVinyles.setSelected(false);
         cultureFactory.setSelected(false);
     }
-
+    @FXML
     public void PopupMail(){
         Stage popupwindow = new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
@@ -93,7 +85,7 @@ public class VinyleController {
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
     }
-
+    @FXML
     public void PopupSave(){
         Stage popupwindow = new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
@@ -113,6 +105,36 @@ public class VinyleController {
         popupwindow.showAndWait();
     }
 
+    @FXML
+    public void SaveSearch() throws IOException {
+        if (search.getText().equals("")||search.getText().equals("Aucune Recherche à enregistrer")){
+            search.setText("Aucune Recherche à enregistrer");
+        }else{
+            String searchTxt = search.getText();
+            try {
+                FileChooser fileChooser = new FileChooser();
+                FileChooser.ExtensionFilter extFilter =
+                        new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
+                fileChooser.getExtensionFilters().add(extFilter);
+                fileChooser.setInitialDirectory(new File("scrol/recherches"));
+                fileChooser.setTitle("");
+                File selectedFile = fileChooser.showSaveDialog(null);
+                String path = selectedFile.getAbsolutePath();
+
+                PrintWriter ecrire = new PrintWriter(new BufferedWriter
+                        (new FileWriter(path)));
+                ecrire.println(searchTxt);
+                ecrire.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+    @FXML
     public void BDDScene() throws IOException {
 
         try{
