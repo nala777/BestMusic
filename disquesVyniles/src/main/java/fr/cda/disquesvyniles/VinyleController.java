@@ -1,5 +1,11 @@
 package fr.cda.disquesvyniles;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.List;
+
+import fr.cda.disquesvyniles.util.Mail;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
+import javafx.scene.control.TextField;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
@@ -19,6 +26,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
+import java.sql.Date;
+
 
 public class VinyleController {
     @FXML
@@ -74,12 +83,16 @@ public class VinyleController {
         popupwindow.setTitle("Envoie Courriel");
         Label label1 = new Label("Saisie du courriel");
         Label label2 = new Label("Veuillez saisir l'email de l'expéditeur");
+        TextField mail = new TextField();
+        mail.setPromptText("destinataire@gmail.com");
         Button button1 = new Button("Envoyer");
         Button button2 = new Button("Annuler");
+
+        button1.setOnAction(e -> Mail.send(mail.getText(),search.getText()));
         button2.setOnAction(e -> popupwindow.close());
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label1,label2,button1,button2);
+        layout.getChildren().addAll(label1,label2,mail,button1,button2);
         layout.setAlignment(Pos.CENTER);
         Scene scene1 = new Scene(layout,300, 250);
         popupwindow.setScene(scene1);
@@ -132,8 +145,6 @@ public class VinyleController {
     }
 
 
-
-
     @FXML
     public void BDDScene() throws IOException {
 
@@ -146,7 +157,7 @@ public class VinyleController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            search.setText("Erreur lors de l'enregistrement du fichier");
         }
     }
     @FXML
@@ -154,5 +165,6 @@ public class VinyleController {
         Stage stage = (Stage) closeBDD.getScene().getWindow();
         stage.close();
     }
+
 
 }
