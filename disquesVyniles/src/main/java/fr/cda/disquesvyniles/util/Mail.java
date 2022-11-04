@@ -2,7 +2,8 @@ package fr.cda.disquesvyniles.util;
 
 import fr.cda.disquesvyniles.*;
 import sendinblue.*;
-import sendinblue.auth.*;
+
+import sendinblue.auth.ApiKeyAuth;
 import sibApi.TransactionalEmailsApi;
 import sibModel.*;
 import sibApi.AccountApi;
@@ -11,6 +12,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -24,27 +26,32 @@ public class Mail{
     // Configure API key authorization: api-key
     ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
     apiKey.setApiKey(dotenv.get("API_SENDINBLUE"));
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKey.setApiKeyPrefix("Token");
 
     AccountApi apiInstance = new AccountApi();
+//    try {
+//      GetAccount result = apiInstance.getAccount();
+//      System.out.println(result);
+//    } catch (ApiException e) {
+//      System.err.println("Exception when calling AccountApi#getAccount");
+//      e.printStackTrace();
+//    }
     try {
 //      TODO transfert fichier
-      File recherche = new File("search.txt");
-      BufferedWriter bw = new BufferedWriter(new FileWriter(recherche));
-
+      String path = "search.txt";
+      PrintWriter ecrire = new PrintWriter(new BufferedWriter
+              (new FileWriter(path)));
+      ecrire.println(search);
+      ecrire.close();
       TransactionalEmailsApi api = new TransactionalEmailsApi();
       SendSmtpEmailSender sender = new SendSmtpEmailSender();
 
-
-
-      sender.setEmail(dotenv.get("SENDER_MAIL"));
+      sender.setEmail("alan.adam0197@gmail.com");
       sender.setName("Alan Adam");
       List<SendSmtpEmailTo> toList = new ArrayList<SendSmtpEmailTo>();
       SendSmtpEmailTo to = new SendSmtpEmailTo();
 
       to.setEmail(mail);
-
+      toList.add(to);
       SendSmtpEmailReplyTo replyTo = new SendSmtpEmailReplyTo();
       replyTo.setEmail(dotenv.get("SENDER_MAIL"));
       replyTo.setName("John Doe");
@@ -63,7 +70,7 @@ public class Mail{
       sendSmtpEmail.setSender(sender);
       sendSmtpEmail.setTo(toList);
       sendSmtpEmail.setHtmlContent("<html><body><h1>This is my first transactional email {{params.parameter}}</h1></body></html>");
-      sendSmtpEmail.setSubject("My {{params.subject}}");
+      sendSmtpEmail.setSubject("{{params.subject}}");
       sendSmtpEmail.setReplyTo(replyTo);
       sendSmtpEmail.setAttachment(attachmentList);
       sendSmtpEmail.setHeaders(headers);

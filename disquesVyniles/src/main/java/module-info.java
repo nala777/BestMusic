@@ -8,7 +8,10 @@ module fr.cda.disquesvyniles {
     requires com.dlsc.formsfx;
     requires java.sql;
     requires dotenv.java;
+    requires junit;
+    requires org.testng;
 
     opens fr.cda.disquesvyniles to javafx.fxml;
     exports fr.cda.disquesvyniles;
+    exports fr.cda.disquesvyniles.test;
 }

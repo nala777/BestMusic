@@ -88,7 +88,10 @@ public class VinyleController {
         Button button1 = new Button("Envoyer");
         Button button2 = new Button("Annuler");
 
-        button1.setOnAction(e -> Mail.send(mail.getText(),search.getText()));
+        button1.setOnAction(e -> {
+            Mail.send(mail.getText(),search.getText());
+            popupwindow.close();
+        });
         button2.setOnAction(e -> popupwindow.close());
 
         VBox layout = new VBox(10);
