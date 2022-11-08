@@ -10,6 +10,7 @@ module fr.cda.disquesvyniles {
     requires dotenv.java;
     requires junit;
     requires org.testng;
+    requires mysql.connector.java;
 
     opens fr.cda.disquesvyniles to javafx.fxml;
     exports fr.cda.disquesvyniles;

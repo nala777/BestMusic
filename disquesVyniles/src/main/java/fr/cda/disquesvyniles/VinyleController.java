@@ -5,6 +5,8 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 
+
+import fr.cda.disquesvyniles.util.scrol.LeBonCoin;
 import fr.cda.disquesvyniles.util.Mail;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -132,15 +134,16 @@ public class VinyleController {
                 FileChooser.ExtensionFilter extFilter =
                         new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
                 fileChooser.getExtensionFilters().add(extFilter);
-                fileChooser.setInitialDirectory(new File("scrol/recherches"));
+                fileChooser.setInitialDirectory(new File("./"));
                 fileChooser.setTitle("");
                 File selectedFile = fileChooser.showSaveDialog(null);
                 String path = selectedFile.getAbsolutePath();
-
-                PrintWriter ecrire = new PrintWriter(new BufferedWriter
-                        (new FileWriter(path)));
-                ecrire.println(searchTxt);
-                ecrire.close();
+                if (path!=null) {
+                    PrintWriter ecrire = new PrintWriter(new BufferedWriter
+                            (new FileWriter(path)));
+                    ecrire.println(searchTxt);
+                    ecrire.close();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -167,6 +170,28 @@ public class VinyleController {
     protected void onFermerBDDClick(){
         Stage stage = (Stage) closeBDD.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    protected void recherche(){
+        String searchTitle = titre.getText();
+        String categorie = genre.getItems().toString();
+        String searchDate = date.getValue()
+                .toString()
+                .substring(0,4);
+        String searchPriceMin = prixMin.getText();
+        String searchPriceMax = prixMax.getText();
+        boolean searchDiscogs = discogs.isSelected();
+        boolean searchFnac = fnac.isSelected();
+        boolean searchVinylCorner = vinylCorner.isSelected();
+        boolean searchLeboncoin = leboncoin.isSelected();
+        boolean searchMesVinyles = mesVinyles.isSelected();
+        boolean searchCultureFactory = cultureFactory.isSelected();
+
+        if(searchLeboncoin==true){
+           search.setText(LeBonCoin.ScrapLeboncoin(searchTitle,searchPriceMin,searchPriceMax));
+
+        }
     }
 
 

@@ -79,7 +79,7 @@
             <TextField fx:id="prixMin" layoutX="148.0" layoutY="210.0" prefHeight="25.0" prefWidth="59.0" promptText="Prix Min" />
             <Label layoutX="218.0" layoutY="214.0" prefHeight="17.0" prefWidth="28.0" text="€ à" />
             <TextField fx:id="prixMax" layoutX="246.0" layoutY="210.0" prefHeight="26.0" prefWidth="67.0" promptText="Prix Max" />
-            <Button fx:id="recherche" layoutX="148.0" layoutY="266.0" mnemonicParsing="false" text="Rechercher" />
+            <Button fx:id="recherche" layoutX="148.0" layoutY="266.0" mnemonicParsing="false" onAction="#recherche" text="Rechercher" />
             <Button fx:id="effacer" layoutX="253.0" layoutY="266.0" mnemonicParsing="false" onAction="#onEffacerClick" text="Effacer" />
             <CheckBox fx:id="discogs" layoutX="472.0" layoutY="104.0" mnemonicParsing="false" text="Discogs.com" />
             <CheckBox fx:id="fnac" layoutX="472.0" layoutY="137.0" mnemonicParsing="false" text="Fnac.com" />
