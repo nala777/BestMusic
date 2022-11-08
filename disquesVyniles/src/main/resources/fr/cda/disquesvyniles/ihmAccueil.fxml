@@ -62,13 +62,13 @@
             <ComboBox fx:id="genre" layoutX="148.0" layoutY="123.0" prefHeight="25.0" prefWidth="203.0" promptText="Sélectionnez un genre">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="Tous les styles" />
                          <String fx:value="Rock" />
                          <String fx:value="Blues" />
                          <String fx:value="Jazz" />
                          <String fx:value="Reggae" />
                          <String fx:value="Funk" />
                          <String fx:value="Electro" />
-                         <String fx:value="DubStep" />
                          <String fx:value="Soul" />
                      </FXCollections>
                  </items>

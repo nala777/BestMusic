@@ -8,6 +8,8 @@ import java.util.List;
 
 import fr.cda.disquesvyniles.util.scrol.LeBonCoin;
 import fr.cda.disquesvyniles.util.scrol.CultureFactory;
+import fr.cda.disquesvyniles.util.scrol.VinylCorner;
+import fr.cda.disquesvyniles.util.scrol.Fnac;
 import fr.cda.disquesvyniles.util.Mail;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -197,8 +199,13 @@ public class VinyleController {
         else if(searchCultureFactory==true){
             res = CultureFactory.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax);
         }
+
+        else if (searchVinylCorner==true) {
+            res = VinylCorner.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax,categorie);
+        }
         search.setText(res);
     }
+
 
 
 }
