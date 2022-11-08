@@ -7,6 +7,7 @@ import java.util.List;
 
 
 import fr.cda.disquesvyniles.util.scrol.LeBonCoin;
+import fr.cda.disquesvyniles.util.scrol.CultureFactory;
 import fr.cda.disquesvyniles.util.Mail;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -187,11 +188,16 @@ public class VinyleController {
         boolean searchLeboncoin = leboncoin.isSelected();
         boolean searchMesVinyles = mesVinyles.isSelected();
         boolean searchCultureFactory = cultureFactory.isSelected();
+        String res = "";
 
         if(searchLeboncoin==true){
-           search.setText(LeBonCoin.ScrapLeboncoin(searchTitle,searchPriceMin,searchPriceMax));
-
+           res = LeBonCoin.ScrapLeboncoin(searchTitle,searchPriceMin,searchPriceMax);
         }
+
+        else if(searchCultureFactory==true){
+            res = CultureFactory.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax);
+        }
+        search.setText(res);
     }
 
 
