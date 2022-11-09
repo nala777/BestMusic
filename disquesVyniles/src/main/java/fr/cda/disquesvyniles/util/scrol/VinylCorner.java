@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class VinylCorner {
-    public static String scrapCultureFactory(String searchTitle, String searchPriceMin, String searchPriceMax, String genre) {
+    public static String scrapVinylCorner(String searchTitle, String searchPriceMin, String searchPriceMax, String genre) {
         String res = "";
         switch (genre) {
             case "Rock":
@@ -36,11 +36,13 @@ public class VinylCorner {
                 genre = "3";
                 break;
             case "Soul":
-                genre = "5";
+                genre = "9";
                 break;
 
         }
+        System.out.println("genre = " + genre);
         String url = "https://www.vinylcorner.fr/catalogsearch/result/?q=" + searchTitle + "&category=" + genre;
+        System.out.println("url = " + url);
         try {
             WebClient webClient = new WebClient();
 
@@ -53,6 +55,7 @@ public class VinylCorner {
             String ValuePrix = "";
             String ValueDesc = "";
             String ValueNAlbum = "";
+            String ValueTi = "";
             Double prixF = 0.0;
 
 
@@ -64,22 +67,22 @@ public class VinylCorner {
                 HtmlPage htmlPage1 = webClient.getPage(e.click().getUrl());
                 List<HtmlElement> nomArtistes = htmlPage1.getByXPath("//div[2]/div/div/div[1]/div[1]/p[2]");
                 List<HtmlElement> prix = htmlPage1.getByXPath("//div[4]/div/span/span/span");
-                List<HtmlElement> titre = htmlPage1.getByXPath("div[2]/div/div/div[2]/div/p[2]");
-                List<HtmlElement> description = htmlPage1.getByXPath("//div/div/div/div[6]/span");
+                List<HtmlElement> titre = htmlPage1.getByXPath("//div[2]/div/div/div[2]/div/p[2]");
+                List<HtmlElement> description = htmlPage1.getByXPath("//div/div/div[6]/span");
 
                 for (HtmlElement na : nomArtistes) {
                     ValueNA = na.getTextContent();
-                    System.out.println("nom artiste:" + ValueNA);
+                    System.out.println("Artiste: " + ValueNA);
                 }
 
                 for (HtmlElement ti : titre) {
-                    ValueNA = ti.getTextContent();
-                    System.out.println("titre:" + ti);
+                    ValueTi = ti.getTextContent();
+                    System.out.println("titre: " + ValueTi);
                 }
 
                 for (HtmlElement desc : description) {
                     ValueDesc = desc.getTextContent();
-                    System.out.println("description" + ValueDesc);
+                    System.out.println("description: " + ValueDesc);
                 }
 
                 for (HtmlElement px : prix) {
@@ -93,8 +96,9 @@ public class VinylCorner {
 
                     res += "Article : " + ValueNAlbum +
                             "\n Artiste/Album : " + ValueNA +
-                            "\n Prix : " + prixF + " €"+
-                            "\n Description de l'article : " + ValueDesc +
+                            "\n Titre : " + ValueTi +
+                            "\n Prix : " + ValuePrix + " €"+
+//                            "\n Description de l'article : " + ValueDesc +
                             "\n lien : " + htmlPage1.getUrl() +
                             "\n--------------------------------------------------------------------\n";
                 }
@@ -103,6 +107,7 @@ public class VinylCorner {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return res;
     }
 }

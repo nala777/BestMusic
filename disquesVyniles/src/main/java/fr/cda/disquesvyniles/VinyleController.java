@@ -9,7 +9,7 @@ import java.util.List;
 import fr.cda.disquesvyniles.util.scrol.LeBonCoin;
 import fr.cda.disquesvyniles.util.scrol.CultureFactory;
 import fr.cda.disquesvyniles.util.scrol.VinylCorner;
-import fr.cda.disquesvyniles.util.scrol.Fnac;
+import fr.cda.disquesvyniles.util.scrol.MesVinyles;
 import fr.cda.disquesvyniles.util.Mail;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -178,7 +178,7 @@ public class VinyleController {
     @FXML
     protected void recherche(){
         String searchTitle = titre.getText();
-        String categorie = genre.getItems().toString();
+        String categorie = genre.getValue().toString();
         String searchDate = date.getValue()
                 .toString()
                 .substring(0,4);
@@ -193,15 +193,19 @@ public class VinyleController {
         String res = "";
 
         if(searchLeboncoin==true){
-           res = LeBonCoin.ScrapLeboncoin(searchTitle,searchPriceMin,searchPriceMax);
+           res += LeBonCoin.ScrapLeboncoin(searchTitle,searchPriceMin,searchPriceMax);
         }
 
-        else if(searchCultureFactory==true){
-            res = CultureFactory.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax);
+        if(searchCultureFactory==true){
+            res += CultureFactory.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax);
         }
 
-        else if (searchVinylCorner==true) {
-            res = VinylCorner.scrapCultureFactory(searchTitle,searchPriceMin,searchPriceMax,categorie);
+        if (searchVinylCorner==true) {
+            res += VinylCorner.scrapVinylCorner(searchTitle,searchPriceMin,searchPriceMax,categorie);
+        }
+
+        if (searchMesVinyles==true) {
+            res += MesVinyles.scrapMesVinyles(searchTitle,searchPriceMin,searchPriceMax,searchDate);
         }
         search.setText(res);
     }
