@@ -1,0 +1,747 @@
+@font-face {
+    font-family: 'Fall-in-Love';
+    src: url('../fonts/fall_in_love-webfont.woff2') format('woff2'),
+        url('../fonts/fall_in_love-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto-Regular';
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Fall-in-Love';
+    font-size: 33px;
+}
+
+h2 {
+    font-family: 'Fall-in-Love';
+    font-size: 33px;
+}
+
+/* =================================HEADER========================== */
+
+header {
+    width: 100%;
+    background: url("../vinyles-artistes/fond-top.jpg") no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 450px;
+    /* position: relative; */
+}
+
+header h2 {
+    margin-top: -15px;
+    margin-left: 15px;
+    color: white;
+}
+
+#titre_desktop{
+    display: none;
+}
+
+header nav {
+    display: flex;
+    position: relative;
+    top: 5px;
+    justify-content: space-between;
+}
+
+header #searchbar_desktop{
+    display: none;
+}
+
+/* ==========================Burger=============== */
+#burger {
+    width: 30px;
+    height: 2px;
+    margin-top: 15px;
+    background: white;
+    display: inline-block;
+    position: relative;
+}
+
+#burger::before,
+#burger::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: white;
+    display: inline-block;
+    position: absolute;
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+#burger::before {
+    top: -7px;
+}
+
+#burger::after {
+    top: 7px;
+}
+
+#burger.open {
+    background: transparent;
+}
+
+#burger.open::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+#burger.open::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+#menu {
+    position: relative;
+    width: 95%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+  }
+
+#menu ul {
+    background: rgba(255, 255, 255, 0.295);
+    position: absolute;
+    width: 250px;
+    align-self: center;
+    top: 35px;
+    padding: 10px 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: all 0.3s ease;
+
+}
+
+#menu ul.open {
+    transform: scaleY(1);
+}
+
+#menu ul li {
+    padding: 10px 0;
+    margin-left: 5px;
+    list-style: none;
+}
+
+#menu ul a {
+    text-decoration: none;
+    color: #474747;
+}
+
+#nav_desktop{
+    display: none;
+}
+
+/* =====================reseau=================== */
+#logo {
+    margin-top: 12px;
+    position: relative;
+}
+
+#logo svg{
+    margin-left: 10px;
+}
+
+#img_search {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#img_search img {
+    width: 150px;
+    height: auto;
+    margin: auto;
+}
+
+#img_search input {
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+    border-style: none;
+    height: 35px;
+    font-family: 'Roboto-Regular', FontAwesome;
+    padding-left: 5px;
+    margin-top: 15px;
+}
+
+#img_search input::placeholder{
+    font-size: 20px;
+}
+
+main{
+    color: black;
+}
+
+.album{
+    height: 330px;
+    background-color: #fef9f5;
+    width: 200px;
+    text-align: center;
+    border: solid #808080 1px;
+    margin-left: 25px;
+}
+
+.album img{
+    height: 200px;
+    width: 200px;
+}
+
+.album .shoplike
+{
+    width: 95%;
+    padding: auto 5px;
+    display: flex;
+    justify-content: space-between;
+    margin: -30px auto 20px auto;
+}
+
+.album p{
+    line-height: 1.4rem;
+    font-size : 14px;
+}
+
+.album p span{
+    line-height: 3.2rem;
+    font-size: 15px;
+    color: #808080;
+}
+
+#incontournables{
+    width: 95%;
+    margin: auto;
+    margin-top: -200px;
+    z-index: 10000;
+}
+
+#incontournables h2{
+    color: white;
+}
+
+.selections{
+    justify-content: space-around;
+    margin: auto;
+    text-align: center;
+    padding-top: 75px;
+}
+
+.selections h1{
+    color: white;
+}
+
+.selections section{
+    margin: auto;
+}
+
+.selections section .album{
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+.desktop_album{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.desktop_album .album{
+    height: 380px;
+    background-color: #fef9f5;
+    width: 250px;
+    margin-top: 30px;
+    text-align: center;
+    border: solid #808080 1px;
+    margin-left: 0px;
+}
+
+.desktop_album .album img{
+    height: 250px;
+    width: 250px;
+}
+
+.album_index{
+    display: none;
+}
+
+#rien_louper{
+    width: 95%;
+    margin: 70px auto;
+    
+}
+
+#incontournables h2{
+    color: white;
+}
+
+#artistes{
+    text-align: center;
+}
+
+.artiste a{
+    text-decoration: none;
+    color: black;
+}
+
+.artiste{
+    margin-left: 50px;
+    width: 150px;
+    text-align: center;
+}
+
+#artistes #sous_titre{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.artiste img{
+    height: 150px;
+    width: auto;
+    border-radius: 100px;
+}
+
+.artiste p{
+    margin-top:5px;
+}
+
+.artiste :nth-child(0n + 3){
+    color : #808080;
+}
+
+/* ====================================SELECTIONS ============================*/
+
+#entete_selections{
+    display: none;
+}
+
+#entete_selections h2{
+    display: block;
+    color: black;
+    padding-bottom: 15px;
+}
+
+/* ==================================ARTICLE SIMPLE======================= */
+
+#article_simple{
+    width: 95%;
+    margin: auto; 
+}
+
+#article_simple p{
+    text-align: start;
+    padding-top: 15px;
+}
+
+#article_simple p.titre {
+    text-align: center;
+    font-size: 25px;
+}
+
+#article_simple h1{
+    text-align: center;
+}
+
+#article_simple img{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+}
+
+#article_simple button{
+    margin-top: 15px;
+    width: 165px;
+    height: 40px;
+    font-family: 'Roboto-Regular';
+    font-size: 15px;
+    color: white;
+    background-color: #D59299;
+    border: none;
+    border-radius: 10px;
+}
+
+#article_simple .titre_desktop{
+    display: none;
+}
+
+/* ====================================FOOTER============================================ */
+
+footer{
+    height: 510px;
+    background :url("../vinyles-artistes/fond-bottom.jpg") no-repeat;
+    background-position: top;
+    background-size: cover;
+    color: white;
+}
+
+footer hr{
+    border-color: white;
+}
+
+#footer{
+    width: 95%;
+    padding-top: 100px;
+    text-align: center;
+    margin: auto;
+}
+
+#titre_footer{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#titre_footer hr{
+    width: 26%;
+    height: 1px;
+    border: none;
+    border-bottom: white solid 1px;
+    margin-top: 32px;
+
+}
+
+#cadre_footer{
+    margin: 30px auto;
+    height: 140px;
+    width: 290px;
+    background-color: #F2DCDF;
+}
+
+#cadre_footer p{
+    padding-top : 15px;
+    color: #78655F
+}
+
+#email{
+    margin: 10px auto;
+
+}
+
+#email input{
+    border: 1px solid #808080;
+    background-color: #F2DCDF;
+    border-radius: 5px;
+    height: 20px;
+}
+
+#email input::placeholder{
+    margin: auto;
+    color: #78655F;
+    text-align: center;
+}
+
+#email button{
+    background-color: #976D77;
+    color: #F2DCDF;
+    border: none;
+    border-radius: 5px;
+    width: 25px;
+    height: 20px;
+}
+
+#reseaux_footer svg{
+    margin : 10px 5px;
+}
+
+#logo_commande{
+    margin-bottom: 30px;
+}
+
+#logo_commande svg{
+    margin: auto 5px;
+}
+
+#copyright hr{
+    margin-bottom: 15px;
+}
+
+#copyright a{
+    color: white;
+    text-decoration: none;
+}
+
+#copyright a :hover{
+    text-decoration: none;
+    color: white;
+}
+
+/* ========================================INTERMEDIAIRE================ */
+
+@media screen and (min-width : 650px){
+    
+
+    footer #cadre_footer{
+        display: flex;
+        width: 80%;
+        justify-content: space-around;
+    }
+
+    footer #cadre_footer input{
+        width: 250px;
+    }
+
+    #news{
+        padding-top: 25px;
+        text-align: left;
+    }
+
+    #article_simple .titre{
+        display: none;
+    }
+
+    #article_simple{
+        display: flex;
+        justify-content: space-around;
+        width: 95%;
+    }
+
+    #article_simple .titre_desktop{
+        display: block;
+        text-align: left;
+    }
+
+    #article_simple h1{
+        width: 100%;
+    }
+
+    #article_simple img{
+        height: 250px;
+        width: auto;
+        margin: auto;
+        margin-top: 0;
+    }
+
+    #description_article_simple{
+        margin-left: 40px;
+    }
+
+    #reseaux_footer{
+        padding-top: 37px;
+    }
+
+    footer svg{
+        height: 60px;
+        width: auto;
+    }
+
+    #cadre_footer svg{
+        height: 40px;
+    }
+
+    footer{
+        height: 610px;
+    }
+}
+
+/* ========================================DESKTOP======================= */
+
+@media screen and (min-width : 1024px){
+
+    /* =========================HEADER============================ */
+
+    header{
+        height: 550px;
+    }
+    header #menu_mobile{
+        display: none;
+    }
+
+    header #titre_desktop{
+        display: block;
+        width: 176px;
+        padding-top: 15px;
+    }
+
+    header #searchbar_desktop{
+        display: block;
+    }
+
+    .album_index{
+        display: flex;
+    }
+
+    #logo svg{
+        height: 30px;
+        width: auto;
+    }
+
+    #img_search input{
+        display: none;
+    }
+
+    #logo_search{
+        display: flex;
+    }
+
+    #logo_search input {
+        width: 300px;
+        margin: auto;
+        border-radius: 10px;
+        border-style: none;
+        height: 35px;
+        font-family: 'Roboto-Regular', FontAwesome;
+        padding-left: 5px;
+        margin-top: 15px;
+    }
+    
+    #logo_search input::placeholder{
+        font-size: 20px;
+    }
+
+    #nav_desktop{
+        display: block;
+        color: white;
+    }
+
+    #nav_desktop ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    #nav_desktop ul li{
+        margin : auto 15px;
+        list-style-type: none;
+        font-size: 20px;
+    }
+
+    #nav_desktop ul li ul{
+        display: none;
+        position: absolute;
+        border: solid 1px #808080;
+        background-color: rgba(255, 255, 255, 0.295);
+        height: 115px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    #nav_desktop a{
+        text-decoration: none;
+        color: white;
+    }
+
+    #nav_desktop ul li ul a{
+        text-decoration: none;
+        color: #474747;
+        
+        
+    }
+
+    #nav_desktop ul li ul li{
+        padding-top: 10px;
+    }
+
+    #nav_desktop ul li:hover ul{
+        display: block;
+    }
+
+    /* ===============SECTION================= */
+
+    .splide_desktop{
+        display: none;
+    }
+
+    #entete_selections{
+        display: flex;
+        width: 95%;
+        margin: auto;
+        padding-bottom: 15px;
+    }
+
+    #entete_selections p{
+        padding-left: 56px;  
+    }
+
+    #type_liste{
+        padding-top: 30px;
+        display: flex;
+        padding-left: 56px;
+    }
+
+    #type_liste i{
+        font-size: 40px;
+        margin-right: 25px;
+    }
+
+    #entete_selections ul{
+        list-style-type: none;
+        border: #808080 solid 1px;
+    }
+
+    #entete_selections h2{
+        border: #808080;
+        height: 50px;
+        width: 200px;
+        background-color: #808080;
+        color: white;
+    }
+
+    #titre_selections{
+        display: none;
+    }
+
+    /* ===============SELECTIONS====================== */
+
+    .selections{
+        padding-top: 200px;
+    }
+
+    .selections h1{
+        color: black;
+    }
+
+    .selections .desktop_album {
+        width: 100%;
+    }
+
+    
+    /* ===============FOOTER================= */
+
+    #footer{
+        padding-top: 170px;
+    }
+
+    #cadre_footer{
+        margin-top: 60px;
+    }
+
+    footer br{
+        display: none;
+    }
+}
+
+
+
+
+
+
