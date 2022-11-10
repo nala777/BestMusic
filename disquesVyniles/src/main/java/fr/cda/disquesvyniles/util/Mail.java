@@ -19,7 +19,16 @@ import java.util.*;
 import java.sql.Date;
 
 
+/**
+ * The type Mail.
+ */
 public class Mail{
+  /**
+   * Send.
+   *
+   * @param mail   the mail
+   * @param search the search
+   */
   public static void send(String mail,String search) {
     Dotenv dotenv = Dotenv.load();
     ApiClient defaultClient = Configuration.getDefaultApiClient();

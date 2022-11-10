@@ -34,6 +34,9 @@ import java.util.ResourceBundle;
 import java.sql.Date;
 
 
+/**
+ * The type Vinyle controller.
+ */
 public class VinyleController {
     @FXML
     private TextField titre;
@@ -62,10 +65,17 @@ public class VinyleController {
     @FXML
     private Button closeBDD;
 
+    /**
+     * On close click.
+     */
     @FXML
     protected void onCloseClick() {
         Platform.exit();
     }
+
+    /**
+     * On effacer click.
+     */
     @FXML
     protected void onEffacerClick(){
         titre.setText("");
@@ -80,6 +90,10 @@ public class VinyleController {
         mesVinyles.setSelected(false);
         cultureFactory.setSelected(false);
     }
+
+    /**
+     * Popup mail.
+     */
     @FXML
     public void PopupMail(){
         Stage popupwindow = new Stage();
@@ -106,6 +120,10 @@ public class VinyleController {
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
     }
+
+    /**
+     * Popup save.
+     */
     @FXML
     public void PopupSave(){
         Stage popupwindow = new Stage();
@@ -126,6 +144,11 @@ public class VinyleController {
         popupwindow.showAndWait();
     }
 
+    /**
+     * Save search.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void SaveSearch() throws IOException {
         if (search.getText().equals("")||search.getText().equals("Aucune Recherche à enregistrer")){
@@ -154,6 +177,13 @@ public class VinyleController {
     }
 
 
+
+
+    /**
+     * Bdd scene.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void BDDScene() throws IOException {
 
@@ -169,12 +199,19 @@ public class VinyleController {
             search.setText("Erreur lors de l'enregistrement du fichier");
         }
     }
+
+    /**
+     * On fermer bdd click.
+     */
     @FXML
     protected void onFermerBDDClick(){
         Stage stage = (Stage) closeBDD.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Recherche and method call for differents websites
+     */
     @FXML
     protected void recherche(){
         String searchTitle = titre.getText();

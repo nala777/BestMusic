@@ -10,7 +10,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Vinyl corner.
+ */
 public class VinylCorner {
+    /**
+     * Scrap vinyl corner string.
+     *
+     * @param searchTitle    the search title
+     * @param searchPriceMin the search price min
+     * @param searchPriceMax the search price max
+     * @param genre          the genre
+     * @return the string
+     */
     public static String scrapVinylCorner(String searchTitle, String searchPriceMin, String searchPriceMax, String genre) {
         String res = "";
         switch (genre) {

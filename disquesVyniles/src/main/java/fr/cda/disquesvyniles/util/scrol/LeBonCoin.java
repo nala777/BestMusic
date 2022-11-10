@@ -8,7 +8,18 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Le bon coin.
+ */
 public class LeBonCoin {
+    /**
+     * Scrap leboncoin string.
+     *
+     * @param searchTitle    the search title
+     * @param searchPriceMin the search price min
+     * @param searchPriceMax the search price max
+     * @return the string
+     */
     public static String ScrapLeboncoin(String searchTitle, String searchPriceMin, String searchPriceMax) {
         String url = "https://leboncoin.fr/recherche?category=26&text=" + searchTitle + "&price=" + searchPriceMin + "-" + searchPriceMax;
         String res = "";

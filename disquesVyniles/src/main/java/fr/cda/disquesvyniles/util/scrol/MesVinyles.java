@@ -7,7 +7,19 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Mes vinyles.
+ */
 public class MesVinyles {
+    /**
+     * Scrap mes vinyles string.
+     *
+     * @param searchTitle    the search title
+     * @param searchPriceMin the search price min
+     * @param searchPriceMax the search price max
+     * @param year           the year
+     * @return the string
+     */
     public static String scrapMesVinyles(String searchTitle, String searchPriceMin, String searchPriceMax, String year) {
         String res = "";
 

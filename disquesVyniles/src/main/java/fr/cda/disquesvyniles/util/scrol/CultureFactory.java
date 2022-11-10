@@ -10,7 +10,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Culture factory.
+ */
 public class CultureFactory {
+    /**
+     * Scrap culture factory  and return a string with the result.
+     *
+     * @param searchTitle    the search title
+     * @param searchPriceMin the search price min
+     * @param searchPriceMax the search price max
+     * @return the string
+     */
     public static String scrapCultureFactory(String searchTitle, String searchPriceMin, String searchPriceMax) {
         String res = "";
         String url = "https://culturefactory.fr/recherche?controller=search&s=" + searchTitle;
