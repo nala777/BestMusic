@@ -24,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.scene.control.TextField;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import org.w3c.dom.Text;
 
 import java.io.*;
 import java.net.URL;
@@ -117,6 +118,44 @@ public class VinyleController {
         layout.getChildren().addAll(label1,label2,mail,button1,button2);
         layout.setAlignment(Pos.CENTER);
         Scene scene1 = new Scene(layout,300, 250);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
+    }
+
+    @FXML
+    public void exit(){
+        Platform.exit();
+    }
+
+    @FXML
+    public void PopupHelp(){
+        Stage popupwindow = new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setTitle("Aide");
+        TextArea aide = new TextArea("Cette application de Scrapping permet de faire une recherche avec un auteur , un prix min , un prix max, une année , un genre :\n" +
+                "\n" +
+                "1/Faire une recherche :\n" +
+                "\n" +
+                "Pour faire une recherche , il suffit de rentrer l'auteur rechercher, la date de sortie, un prix min et max et selectionner \n" +
+                "les ou le site sur lequel rechercher\n" +
+                "\n" +
+                "2/ Enregistrer dans un fichier\n" +
+                "\n" +
+                "Après une recherche, il vous est possible de l'enregistrer dans un fichier texte à travers les menu en haut à droite\n" +
+                "\n" +
+                "3/ Envoie par mail\n" +
+                "\n" +
+                "La possibilité d'envoyer le résultat de la recherche par mail\n" +
+                "\n" +
+                "4/ Envoie en base de donnée du résultat\n" +
+                "\n" +
+                "En cours ") ;
+        aide.setPrefHeight(800.00);
+        aide.setPrefWidth(600.00);
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(aide);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1 = new Scene(layout,800, 600);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
     }
